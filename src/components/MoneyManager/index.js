@@ -17,9 +17,14 @@ const transactionTypeOptions = [
   },
 ]
 
+let savedTransactionsList = JSON.parse(localStorage.getItem('transactionsList'))
+if (savedTransactionsList === null) {
+  savedTransactionsList = []
+}
+
 class MoneyManager extends Component {
   state = {
-    transactionsList: [],
+    transactionsList: savedTransactionsList,
     titleInput: '',
     amountInput: '',
     optionId: transactionTypeOptions[0].optionId,
@@ -114,6 +119,11 @@ class MoneyManager extends Component {
     return balanceAmount
   }
 
+  onSave = () => {
+    const {transactionsList} = this.state
+    localStorage.setItem('transactionsList', JSON.stringify(transactionsList))
+  }
+
   render() {
     const {titleInput, amountInput, optionId, transactionsList} = this.state
     const balanceAmount = this.getBalance()
@@ -128,7 +138,7 @@ class MoneyManager extends Component {
             Here
           </h1>
           <div className="header-container">
-            <h1 className="heading">Hi, Richard</h1>
+            <h1 className="heading">Hi, Rama Krishna</h1>
             <p className="header-content">
               Welcome to your
               <span className="money-manager-text"> Money Manager</span>
@@ -179,9 +189,18 @@ class MoneyManager extends Component {
                   </option>
                 ))}
               </select>
-              <button type="submit" className="button">
-                Add
-              </button>
+              <div className="btn-container">
+                <button type="submit" className="button">
+                  Add
+                </button>
+                <button
+                  type="button"
+                  className="button save-btn"
+                  onClick={this.onSave}
+                >
+                  Save
+                </button>
+              </div>
             </form>
             <div className="history-transactions">
               <h1 className="transaction-header">History</h1>
