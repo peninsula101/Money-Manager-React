@@ -11,7 +11,7 @@
 
 .top-head {
   font-family: 'Roboto';
-  font-size: 40px;
+  font-size: 25px;
   text-align: center;
   font-weight: 500;
   font-style: oblique;
@@ -29,7 +29,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url('https://res.cloudinary.com/do4qwwms8/image/upload/v1626263091/Money%20Manager/money-manager-header_rxlcrn.png');
+  background-image: url('https://assets.ccbp.in/frontend/react-js/money-manager/money-manager-bg.png');
   background-size: cover;
   height: 172px;
   border-radius: 16px;
@@ -149,6 +149,11 @@
   min-width: 157px;
 }
 
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .button {
   background-color: #0b69ff;
   color: #ffffff;
@@ -165,6 +170,13 @@
   outline: none;
   cursor: pointer;
   margin-bottom: 10px;
+}
+
+.save-btn {
+  align-self: flex-end;
+  background-color: orange;
+  padding: 10px 20px;
+  margin-left: 120px;
 }
 
 .history-transactions {
